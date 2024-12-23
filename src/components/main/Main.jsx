@@ -1,4 +1,5 @@
 import { Form } from '../form/Form'
+import { Template } from './Template'
 
 export const Main = () => {
 	return (
@@ -9,13 +10,7 @@ export const Main = () => {
 			</div>
 
 			<div className='w-full h-96 mt-28'>
-				<h3 className='mb-2 text-2xl text-gray-800 text-center font-semibold'>
-					Plantilla
-				</h3>
-				<div className='w-full h-full p-4 flex flex-col items-center border-2 border-black/20 rounded-md'>
-					<h4>Titulo</h4>
-					<p>Descripción</p>
-				</div>
+				<Template />
 			</div>
 		</main>
 	)

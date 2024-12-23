@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { Button } from '../buttons/Button'
 import { Input } from '../inputs/Input'
 
@@ -21,7 +22,7 @@ export const Form = () => {
 				placeholder='Escribir aqui...'
 			/>
 
-			<Input type='color' name='Color de fondo' id='backgroundColor' />
+			<Input type='color' name='Color de fondo' id='backgroundColor' v />
 
 			<Input type='color' name='Color de texto' id='textColor' />
 
