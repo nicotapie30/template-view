@@ -1,5 +1,4 @@
-import { Form } from '../form/Form'
-import { Template } from './Template'
+import { Form } from '@/components/form/Form'
 
 export const Main = () => {
 	return (
@@ -7,10 +6,6 @@ export const Main = () => {
 			<h1 className='text-5xl font-bold text-blue-800'>Template View</h1>
 			<div>
 				<Form />
-			</div>
-
-			<div className='w-full h-96 mt-28'>
-				<Template />
 			</div>
 		</main>
 	)

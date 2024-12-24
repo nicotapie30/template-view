@@ -3,7 +3,7 @@ import { Copyright } from './Copyright'
 
 export const Footer = () => {
 	return (
-		<footer className='w-full h-40 mt-40 p-4 flex flex-col justify-end items-center bg-slate-700 text-cyan-50'>
+		<footer className='w-full h-full mt-32 p-4 flex flex-col items-center bg-slate-700 text-cyan-50'>
 			<div className='flex flex-col items-center gap-4'>
 				<h5 className='text-xl font-bold '>Contacto</h5>
 				<div className='flex'>
