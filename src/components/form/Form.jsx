@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/buttons/Button'
 import { Input } from '@/components/inputs/Input'
 import { Template } from '@/components/main/Template'
@@ -24,27 +24,61 @@ export const Form = () => {
 
 	return (
 		<div className='w-screen h-full p-4 flex flex-col items-center gap-4'>
-			<form className='w-80 h-full p-4 mt-12 flex flex-col gap-4 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'>
+			<form className='w-auto min-w-80 h-full p-4 mt-12 flex flex-col gap-12 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'>
 				<h2 className='mb-4 text-center text-3xl font-bold text-red-600'>
 					Crear plantilla
 				</h2>
-				<Input
-					type='text'
-					name='Título'
-					id='title'
-					placeholder='Escribir aqui...'
-					value={inputValue.title}
-					onChange={handleChange}
-				/>
+				<div className='flex flex-col gap-6'>
+					<Input
+						type='text'
+						name='Título'
+						id='title'
+						placeholder='Escribir aqui...'
+						value={inputValue.title}
+						onChange={handleChange}
+					/>
 
-				<Input
-					type='text'
-					name='Texto'
-					id='text'
-					placeholder='Escribir aqui...'
-					value={inputValue.text}
-					onChange={handleChange}
-				/>
+					<div className='relative'>
+						<Input
+							type='range'
+							name='Tamaño de título'
+							id='fontTitleSize'
+							min='10'
+							max='50'
+							value={inputValue.fontTitleSize}
+							onChange={handleChange}
+						/>
+						<span className='text-gray-800 absolute top-2/2'>
+							{inputValue.fontTitleSize}px
+						</span>
+					</div>
+				</div>
+
+				<div className='flex flex-col gap-6'>
+					<Input
+						type='text'
+						name='Texto'
+						id='text'
+						placeholder='Escribir aqui...'
+						value={inputValue.text}
+						onChange={handleChange}
+					/>
+
+					<div>
+						<Input
+							type='range'
+							name='Tamaño de texto'
+							id='fontTextSize'
+							min='5'
+							max='30'
+							value={inputValue.fontTextSize}
+							onChange={handleChange}
+						/>
+						<span className='text-gray-800 absolute top-2/2'>
+							{inputValue.fontTextSize}px
+						</span>
+					</div>
+				</div>
 
 				<Input
 					type='color'
@@ -75,10 +109,10 @@ export const Form = () => {
 				<SelectFont font={font} setFont={setFont} />
 
 				<div className='w-full h-full mt-8 flex justify-center items-center gap-6'>
-					<Button type='submit' content='Descargar' />
-					<Button type='reset' content='Resetear' onReset={handleReset} />
+					<Button type='reset' content='Resetear' onClick={handleReset} />
 				</div>
 			</form>
+
 			<Template values={inputValue} font={font} />
 		</div>
 	)

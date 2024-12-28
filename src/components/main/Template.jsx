@@ -1,10 +1,14 @@
 import './template.css'
+import { downloadPDF } from '@/utils/PDF/downloadPDF'
+import { Button } from '../buttons/Button'
 
 export const Template = ({ values, font }) => {
 	const formValues = {
 		backgroundColor: values.backgroundColor,
 		titleColor: values.titleColor,
 		textColor: values.textColor,
+		fontTitleSize: values.fontTitleSize,
+		fontTextSize: values.fontTextSize,
 		fontFamily:
 			font === 'font-sans'
 				? 'Arial, sans-serif'
@@ -17,7 +21,7 @@ export const Template = ({ values, font }) => {
 
 	return (
 		<>
-			<h3 className='mb-2 mt-10 text-3xl text-gray-800 text-center font-semibold'>
+			<h3 className='mb-1 mt-12 text-4xl text-gray-800 text-center font-bold'>
 				Plantilla
 			</h3>
 			<div
@@ -34,23 +38,30 @@ export const Template = ({ values, font }) => {
 						formValues.titleColor && {
 							color: formValues.titleColor,
 							fontFamily: formValues.fontFamily,
+							fontSize: `${formValues.fontTitleSize}px`,
 						}
 					}
 				>
 					{values.title}
 				</h4>
 				<p
-					className='w-full text-lg overflow-x-hidden flex justify-center'
+					className='w-full text-lg flex justify-center'
 					style={
 						formValues.textColor && {
 							color: formValues.textColor,
 							fontFamily: formValues.fontFamily,
+							fontSize: `${formValues.fontTextSize}px`,
 						}
 					}
 				>
 					{values.text}
 				</p>
 			</div>
+			<Button
+				onClick={downloadPDF}
+				type='button'
+				content='Descargar plantilla'
+			/>
 		</>
 	)
 }
