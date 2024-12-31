@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/buttons/Button'
 import { Input } from '@/components/inputs/Input'
 import { Template } from '@/components/main/Template'
 import { SelectFont } from '@/components/inputs/SelectFont'
 import { initialValues } from '@/utils/initialValues'
+import { handleImageChange } from '@/utils/imageLogicInput'
 
 export const Form = () => {
 	const [inputValue, setInputValue] = useState(initialValues)
 	const [font, setFont] = useState('')
 
 	const handleChange = (e) => {
-		const { id, value } = e.target
-		setInputValue((prevState) => ({
-			...prevState,
-			[id]: value,
-		}))
+		const { id, value, files } = e.target
+		if (id === 'image' && files.length > 0) {
+			handleImageChange(e, setInputValue)
+		} else {
+			setInputValue((prevState) => ({
+				...prevState,
+				[id]: value,
+			}))
+		}
 	}
 
 	const handleReset = () => {
@@ -22,9 +27,13 @@ export const Form = () => {
 		setFont('')
 	}
 
+	const handleSubmit = (e) => {
+		e.preventDefault()
+	}
+
 	return (
 		<div className='w-screen h-full p-4 flex flex-col items-center gap-4'>
-			<form className='w-auto min-w-80 h-full p-4 mt-12 flex flex-col gap-12 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'>
+			<form className='w-auto min-w-80 h-full p-4 mt-12 flex flex-col gap-14 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'>
 				<h2 className='mb-4 text-center text-3xl font-bold text-red-600'>
 					Crear plantilla
 				</h2>
@@ -38,7 +47,7 @@ export const Form = () => {
 						onChange={handleChange}
 					/>
 
-					<div className='relative'>
+					<div>
 						<Input
 							type='range'
 							name='Tamaño de título'
@@ -48,9 +57,6 @@ export const Form = () => {
 							value={inputValue.fontTitleSize}
 							onChange={handleChange}
 						/>
-						<span className='text-gray-800 absolute top-2/2'>
-							{inputValue.fontTitleSize}px
-						</span>
 					</div>
 				</div>
 
@@ -74,9 +80,6 @@ export const Form = () => {
 							value={inputValue.fontTextSize}
 							onChange={handleChange}
 						/>
-						<span className='text-gray-800 absolute top-2/2'>
-							{inputValue.fontTextSize}px
-						</span>
 					</div>
 				</div>
 
@@ -107,6 +110,13 @@ export const Form = () => {
 				</div>
 
 				<SelectFont font={font} setFont={setFont} />
+
+				<Input
+					type='file'
+					name='Cargar imágen'
+					id='image'
+					onChange={handleChange}
+				/>
 
 				<div className='w-full h-full mt-8 flex justify-center items-center gap-6'>
 					<Button type='reset' content='Resetear' onClick={handleReset} />

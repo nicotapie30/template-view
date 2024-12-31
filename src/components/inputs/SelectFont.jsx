@@ -3,11 +3,11 @@ export const SelectFont = ({ font, setFont }) => {
 		setFont(e.target.value)
 	}
 
-	const className = 'w-full p-2 bg-white/40 backdrop-blur-3xl font-medium'
+	const className = 'w-full p-2 bg-blue-50 text-slate-800 font-medium'
 
 	return (
 		<select
-			className='w-full p-2 mt-4 bg-gray-800/20 rounded-md font-semibold outline-none'
+			className='w-full p-2 mt-4 bg-gray-800/20 text-slate-900 rounded-md font-semibold outline-none'
 			name='select'
 			id='select'
 			value={font}

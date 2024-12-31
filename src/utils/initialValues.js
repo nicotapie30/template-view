@@ -6,4 +6,5 @@ export const initialValues = {
 	textColor: '#000000',
 	fontTitleSize: 10,
 	fontTextSize: 5,
+	image: '',
 }
