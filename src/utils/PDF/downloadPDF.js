@@ -1,22 +1,28 @@
-import html2canvas from 'html2canvas'
+import domtoimage from 'dom-to-image'
 import jsPDF from 'jspdf'
 
 export const downloadPDF = () => {
 	const element = document.querySelector('#template')
 
 	// Capturar el elemento como imágen
-	html2canvas(element).then((canvas) => {
-		const imgData = canvas.toDataURL('image/png')
+	domtoimage
+		.toPng(element)
+		.then((dataURL) => {
+			const img = new Image()
+			img.src = dataURL
 
-		// Crear PDF e insertar la imágen capturada
-		const pdf = new jsPDF({
-			orientation: 'portrait',
-			unit: 'px',
-			format: [canvas.width, canvas.height],
-			padding: '5px',
+			// Crear PDF e insertar la imágen capturada
+			const pdf = new jsPDF({
+				orientation: 'portrait',
+				unit: 'px',
+				format: [element.offsetWidth, element.offsetHeight],
+				padding: '5px',
+			})
+
+			pdf.addImage(img, 'PNG', 0, 0, element.offsetWidth, element.offsetHeight)
+			pdf.save('plantilla.pdf')
 		})
-
-		pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height)
-		pdf.save('plantilla.pdf')
-	})
+		.catch((err) => {
+			alert(`Error capturando el eleménto: ${err}`)
+		})
 }

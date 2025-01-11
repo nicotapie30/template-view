@@ -32,11 +32,15 @@ export const Form = () => {
 	}
 
 	return (
-		<div className='w-screen h-full p-4 flex flex-col items-center gap-4'>
-			<form className='w-auto min-w-80 h-full p-4 mt-12 flex flex-col gap-14 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'>
+		<div className='w-screen h-full p-4 px-10 flex gap-4'>
+			<form
+				className='w-auto min-w-80 h-full p-4 mt-12 flex flex-col gap-14 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'
+				onSubmit={handleSubmit}
+			>
 				<h2 className='mb-4 text-center text-3xl font-bold text-red-600'>
 					Crear plantilla
 				</h2>
+
 				<div className='flex flex-col gap-6'>
 					<Input
 						type='text'
@@ -83,14 +87,63 @@ export const Form = () => {
 					</div>
 				</div>
 
-				<Input
-					type='color'
-					name='Color de fondo'
-					id='backgroundColor'
-					value={inputValue.backgroundColor}
-					onChange={handleChange}
-				/>
+				<div className='w-full h-full mt-4 flex flex-col gap-10'>
+					<Input
+						type='range'
+						name='Border Radius'
+						id='borderRadius'
+						min='0'
+						max='50'
+						value={inputValue.borderRadius}
+						onChange={handleChange}
+					/>
 
+					<Input
+						type='color'
+						name='Color de fondo'
+						id='backgroundColor'
+						value={inputValue.backgroundColor}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='range'
+						name='Box Shadow Size X'
+						id='boxShadowSizeX'
+						min='0'
+						max='20'
+						value={inputValue.boxShadowSizeX}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='range'
+						name='Box Shadow Size Y'
+						id='boxShadowSizeY'
+						min='0'
+						max='20'
+						value={inputValue.boxShadowSizeY}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='range'
+						name='Box Shadow Size'
+						id='boxShadowSize'
+						min='0'
+						max='20'
+						value={inputValue.boxShadowSize}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='color'
+						name='Box Shadow Color'
+						id='boxShadowColor'
+						value={inputValue.boxShadowColor}
+						onChange={handleChange}
+					/>
+				</div>
 				<div className='w-full h-full flex gap-6 place-content-center'>
 					<Input
 						type='color'

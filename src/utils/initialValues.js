@@ -7,4 +7,9 @@ export const initialValues = {
 	fontTitleSize: 10,
 	fontTextSize: 5,
 	image: '',
+	borderRadius: 0,
+	boxShadowSizeX: 0,
+	boxShadowSizeY: 0,
+	boxShadowSize: 0,
+	boxShadowColor: '#000000',
 }
