@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/buttons/Button'
 import { Input } from '@/components/inputs/Input'
-import { Template } from '@/components/main/Template'
 import { SelectFont } from '@/components/inputs/SelectFont'
-import { initialValues } from '@/utils/initialValues'
+import initialValues from '@/utils/initialValues.js'
 import { handleImageChange } from '@/utils/imageLogicInput'
 
-export const Form = () => {
-	const [inputValue, setInputValue] = useState(initialValues)
-	const [font, setFont] = useState('')
-
+export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 	const handleChange = (e) => {
 		const { id, value, files } = e.target
 		if (id === 'image' && files.length > 0) {
@@ -32,9 +28,9 @@ export const Form = () => {
 	}
 
 	return (
-		<div className='w-screen h-full p-4 px-10 flex gap-4'>
+		<div className='w-auto h-full px-10 flex gap-4'>
 			<form
-				className='w-auto min-w-80 h-full p-4 mt-12 flex flex-col gap-14 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'
+				className='w-96 min-w-70 h-full p-4 flex flex-col gap-14 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'
 				onSubmit={handleSubmit}
 			>
 				<h2 className='mb-4 text-center text-3xl font-bold text-red-600'>
@@ -55,10 +51,33 @@ export const Form = () => {
 						<Input
 							type='range'
 							name='Tamaño de título'
-							id='fontTitleSize'
+							id='titleSize'
 							min='10'
 							max='50'
-							value={inputValue.fontTitleSize}
+							value={inputValue.titleSize}
+							onChange={handleChange}
+						/>
+					</div>
+				</div>
+
+				<div className='flex flex-col gap-6'>
+					<Input
+						type='text'
+						name='Subtítulo'
+						id='subTitle'
+						placeholder='Escribir aqui...'
+						value={inputValue.subTitle}
+						onChange={handleChange}
+					/>
+
+					<div>
+						<Input
+							type='range'
+							name='Tamaño de Subtítulo'
+							id='subTitleSize'
+							min='8'
+							max='35'
+							value={inputValue.subTitleSize}
 							onChange={handleChange}
 						/>
 					</div>
@@ -78,10 +97,10 @@ export const Form = () => {
 						<Input
 							type='range'
 							name='Tamaño de texto'
-							id='fontTextSize'
+							id='textSize'
 							min='5'
 							max='30'
-							value={inputValue.fontTextSize}
+							value={inputValue.textSize}
 							onChange={handleChange}
 						/>
 					</div>
@@ -95,14 +114,6 @@ export const Form = () => {
 						min='0'
 						max='50'
 						value={inputValue.borderRadius}
-						onChange={handleChange}
-					/>
-
-					<Input
-						type='color'
-						name='Color de fondo'
-						id='backgroundColor'
-						value={inputValue.backgroundColor}
 						onChange={handleChange}
 					/>
 
@@ -144,12 +155,28 @@ export const Form = () => {
 						onChange={handleChange}
 					/>
 				</div>
-				<div className='w-full h-full flex gap-6 place-content-center'>
+				<div className='w-full h-full flex gap-6 flex-wrap justify-evenly text-center'>
+					<Input
+						type='color'
+						name='Color de fondo'
+						id='backgroundColor'
+						value={inputValue.backgroundColor}
+						onChange={handleChange}
+					/>
+
 					<Input
 						type='color'
 						name='Color de título'
 						id='titleColor'
 						value={inputValue.titleColor}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='color'
+						name='Color de Subtítulo'
+						id='subTitleColor'
+						value={inputValue.subTitleColor}
 						onChange={handleChange}
 					/>
 
@@ -175,8 +202,6 @@ export const Form = () => {
 					<Button type='reset' content='Resetear' onClick={handleReset} />
 				</div>
 			</form>
-
-			<Template values={inputValue} font={font} />
 		</div>
 	)
 }

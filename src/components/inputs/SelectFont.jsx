@@ -3,7 +3,12 @@ export const SelectFont = ({ font, setFont }) => {
 		setFont(e.target.value)
 	}
 
-	const className = 'w-full p-2 bg-blue-50 text-slate-800 font-medium'
+	const fonts = [
+		{ id: 'fuente', label: 'Fuente' },
+		{ id: 'font-sans', label: 'Sans Serif' },
+		{ id: 'font-serif', label: 'Serif' },
+		{ id: 'font-mono', label: 'Monospace' },
+	]
 
 	return (
 		<select
@@ -13,18 +18,15 @@ export const SelectFont = ({ font, setFont }) => {
 			value={font}
 			onChange={handleSelect}
 		>
-			<option value='' className={className}>
-				Fuente...
-			</option>
-			<option value='font-sans' className={className}>
-				font-sans
-			</option>
-			<option value='font-serif' className={className}>
-				font-serif
-			</option>
-			<option value='font-mono' className={className}>
-				font-mono
-			</option>
+			{fonts.map((font) => (
+				<option
+					key={font.id}
+					value={font.id}
+					className='w-full p-2 bg-blue-50 text-slate-800 font-medium'
+				>
+					{font.label}
+				</option>
+			))}
 		</select>
 	)
 }

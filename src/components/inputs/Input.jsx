@@ -24,17 +24,48 @@ export const Input = ({
 			className='flex flex-col gap-1 text-lg font-medium relative'
 		>
 			{name}
-			<input
-				type={type}
-				name={name}
-				id={id}
-				value={value}
-				onChange={onChange}
-				placeholder={placeholder}
-				min={min}
-				max={max}
-				className={className()}
-			/>
+			{type === 'color' && id !== 'boxShadowColor' ? (
+				<div className='flex justify-center gap-2'>
+					<input
+						type={type}
+						name={name}
+						id={id}
+						value={value}
+						onChange={onChange}
+						placeholder={placeholder}
+						min={min}
+						max={max}
+						className={className()}
+					/>
+				</div>
+			) : (
+				<input
+					type={type}
+					name={name}
+					id={id}
+					value={value}
+					onChange={onChange}
+					placeholder={placeholder}
+					min={min}
+					max={max}
+					className={className()}
+				/>
+			)}
+			{type !== 'color' && id === 'boxShadowColor' ? (
+				<input
+					type={type}
+					name={name}
+					id={id}
+					value={value}
+					onChange={onChange}
+					placeholder={placeholder}
+					min={min}
+					max={max}
+					className={className()}
+				/>
+			) : (
+				''
+			)}
 			{type === 'range' && (
 				<span className='text-gray-800 text-base font-medium absolute top-14'>
 					{value}px
