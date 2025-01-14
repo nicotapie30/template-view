@@ -16,7 +16,7 @@ export const Main = () => {
 
 	return (
 		<main className='w-full h-full mt-12 p-4 flex flex-col items-center'>
-			<h1 className='text-5xl mb-10 font-bold text-blue-800'>Template View</h1>
+			<h1 className='text-6xl mb-28 font-bold text-blue-800'>Template View</h1>
 
 			<div className='w-full flex flex-col gap-12'>
 				<article className='w-full h-auto flex gap-6 text-sm font-medium justify-center'>
@@ -29,7 +29,7 @@ export const Main = () => {
 					))}
 				</article>
 
-				<section className='w-full h-auto flex'>
+				<section className='w-full h-auto mb-10 flex'>
 					<Form
 						inputValue={inputValue}
 						setInputValue={setInputValue}

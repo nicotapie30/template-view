@@ -30,10 +30,10 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 	return (
 		<div className='w-auto h-full px-10 flex gap-4'>
 			<form
-				className='w-96 min-w-70 h-full p-4 flex flex-col gap-14 bg-gray-800/10 backdrop-blur-3xl rounded-md shadow-md'
+				className='w-96 min-w-70 h-full p-4 flex flex-col gap-14 bg-slate-300/20 backdrop-blur-3xl rounded-md shadow-lg'
 				onSubmit={handleSubmit}
 			>
-				<h2 className='mb-4 text-center text-3xl font-bold text-red-600'>
+				<h2 className='mb-4 text-center text-4xl font-bold text-red-500/90'>
 					Crear plantilla
 				</h2>
 
@@ -161,6 +161,22 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 						name='Color de fondo'
 						id='backgroundColor'
 						value={inputValue.backgroundColor}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='color'
+						name='Color de Cabecera'
+						id='headerColor'
+						value={inputValue.headerColor}
+						onChange={handleChange}
+					/>
+
+					<Input
+						type='color'
+						name='Color de Cuerpo'
+						id='bodyColor'
+						value={inputValue.bodyColor}
 						onChange={handleChange}
 					/>
 

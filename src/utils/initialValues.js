@@ -3,6 +3,8 @@ const initialValues = {
 	subTitle: '',
 	text: '',
 	backgroundColor: '#ffffff',
+	headerColor: '#ffffff',
+	bodyColor: '#ffffff',
 	titleColor: '#000000',
 	subTitleColor: '#000000',
 	textColor: '#000000',
