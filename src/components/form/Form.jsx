@@ -37,6 +37,28 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 					Crear plantilla
 				</h2>
 
+				<Input
+					type='range'
+					name='Ancho'
+					id='width'
+					min='30'
+					max=''
+					value={inputValue.width}
+					onChange={handleChange}
+					unit='%'
+				/>
+
+				<Input
+					type='range'
+					name='Alto'
+					id='height'
+					min='30'
+					max=''
+					value={inputValue.height}
+					onChange={handleChange}
+					unit='%'
+				/>
+
 				<div className='flex flex-col gap-6'>
 					<Input
 						type='text'
@@ -56,6 +78,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 							max='50'
 							value={inputValue.titleSize}
 							onChange={handleChange}
+							unit='px'
 						/>
 					</div>
 				</div>
@@ -79,6 +102,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 							max='35'
 							value={inputValue.subTitleSize}
 							onChange={handleChange}
+							unit='px'
 						/>
 					</div>
 				</div>
@@ -102,6 +126,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 							max='30'
 							value={inputValue.textSize}
 							onChange={handleChange}
+							unit='px'
 						/>
 					</div>
 				</div>
@@ -115,6 +140,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 						max='50'
 						value={inputValue.borderRadius}
 						onChange={handleChange}
+						unit='px'
 					/>
 
 					<Input
@@ -125,6 +151,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 						max='20'
 						value={inputValue.boxShadowSizeX}
 						onChange={handleChange}
+						unit='px'
 					/>
 
 					<Input
@@ -135,6 +162,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 						max='20'
 						value={inputValue.boxShadowSizeY}
 						onChange={handleChange}
+						unit='px'
 					/>
 
 					<Input
@@ -145,6 +173,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 						max='20'
 						value={inputValue.boxShadowSize}
 						onChange={handleChange}
+						unit='px'
 					/>
 
 					<Input
@@ -212,6 +241,39 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 					name='Cargar imágen'
 					id='image'
 					onChange={handleChange}
+				/>
+
+				<Input
+					type='range'
+					name='Ancho de la imágen'
+					id='widthImage'
+					min='10'
+					max=''
+					value={inputValue.widthImage}
+					onChange={handleChange}
+					unit='%'
+				/>
+
+				<Input
+					type='range'
+					name='Alto de la imágen'
+					id='heightImage'
+					min='10'
+					max=''
+					value={inputValue.heightImage}
+					onChange={handleChange}
+					unit='%'
+				/>
+
+				<Input
+					type='range'
+					name='Radio de la imágen'
+					id='borderRadiusImage'
+					min='0'
+					max='50'
+					value={inputValue.borderRadiusImage}
+					onChange={handleChange}
+					unit='px'
 				/>
 
 				<div className='w-full h-full mt-8 flex justify-center items-center gap-6'>

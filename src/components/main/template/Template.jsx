@@ -1,7 +1,11 @@
 import { CardTemplate } from './cardTemplate/CardTemplate'
+import { BannerTemplate } from './bannerTemplate/BannerTemplate'
+import { InvitationTemplate } from './invitationTemplate/InvitationTemplate'
 
 const templatemMap = {
 	card: CardTemplate,
+	banner: BannerTemplate,
+	invitation: InvitationTemplate,
 }
 
 export const Template = ({ type, values, font }) => {

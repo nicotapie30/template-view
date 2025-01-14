@@ -1,4 +1,6 @@
 const initialValues = {
+	width: 30,
+	height: 30,
 	title: '',
 	subTitle: '',
 	text: '',
@@ -12,6 +14,9 @@ const initialValues = {
 	subTitleSize: 8,
 	textSize: 5,
 	image: '',
+	widthImage: 10,
+	heightImage: 10,
+	borderRadiusImage: 0,
 	borderRadius: 0,
 	boxShadowSizeX: 0,
 	boxShadowSizeY: 0,

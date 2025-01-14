@@ -7,6 +7,7 @@ export const Input = ({
 	id,
 	min,
 	max,
+	unit,
 }) => {
 	const className = () => {
 		if (type === 'range') {
@@ -68,7 +69,8 @@ export const Input = ({
 			)}
 			{type === 'range' && (
 				<span className='text-gray-800 text-sm font-medium absolute top-14'>
-					{value}px
+					{value}
+					{unit}
 				</span>
 			)}
 		</label>

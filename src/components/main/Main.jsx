@@ -29,14 +29,19 @@ export const Main = () => {
 					))}
 				</article>
 
-				<section className='w-full h-auto mb-10 flex'>
+				<section className='w-full h-full mb-10 flex'>
 					<Form
 						inputValue={inputValue}
 						setInputValue={setInputValue}
 						font={font}
 						seFont={seFont}
 					/>
-					<Template type={templateType} values={inputValue} font={font} />
+					<div
+						id='template'
+						className='w-full min-h-full bg-slate-50 p-6 grid rounded-md transition-all shadow-lg'
+					>
+						<Template type={templateType} values={inputValue} font={font} />
+					</div>
 				</section>
 			</div>
 			<Button
