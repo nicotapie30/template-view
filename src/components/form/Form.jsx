@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from '@/components/buttons/Button'
 import { Input } from '@/components/inputs/Input'
 import { SelectFont } from '@/components/inputs/SelectFont'
@@ -7,13 +7,13 @@ import { handleImageChange } from '@/utils/imageLogicInput'
 
 export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 	const handleChange = (e) => {
-		const { id, value, files } = e.target
+		const { id, value, files, type } = e.target
 		if (id === 'image' && files.length > 0) {
 			handleImageChange(e, setInputValue)
 		} else {
 			setInputValue((prevState) => ({
 				...prevState,
-				[id]: value,
+				[id]: type === 'range' ? Number(value) : value,
 			}))
 		}
 	}

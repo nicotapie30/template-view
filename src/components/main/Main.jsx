@@ -20,11 +20,10 @@ export const Main = () => {
 
 			<div className='w-full flex flex-col gap-12'>
 				<article className='w-full h-auto flex gap-6 text-sm font-medium justify-center'>
-					{['card', 'invitation', 'banner'].map((type) => (
+					{['Card', 'Invitation', 'Banner'].map((type) => (
 						<Button
 							key={type}
 							onClick={() => handleTemplateChange(type.toLowerCase())}
-							type='button'
 							content={type}
 						/>
 					))}

@@ -9,7 +9,7 @@ export const Template = ({ type, values, font }) => {
 
 	if (!SelectedTemplate) {
 		return (
-			<div className='w-full h-full rounded-md bg-red-400 font-bold'>
+			<div className='w-full h-20 flex items-center justify-center rounded-md bg-red-400 text-lg font-semibold'>
 				Error: Tipo de plantilla no valida
 			</div>
 		)
