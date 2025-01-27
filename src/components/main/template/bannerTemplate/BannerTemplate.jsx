@@ -45,7 +45,7 @@ export const BannerTemplate = ({ values, font }) => {
 
 	return (
 		<div
-			className='flex flex-col place-self-center transition-all z-10 border-none'
+			className='flex flex-col place-self-center transition-all z-10 border-none overflow-hidden'
 			style={{
 				width: `${width}%`,
 				height: `${height}%`,
@@ -56,7 +56,14 @@ export const BannerTemplate = ({ values, font }) => {
 				boxShadow: `${boxShadowSizeX}px ${boxShadowSizeY}px ${boxShadowSize}px ${boxShadowColor}`,
 			}}
 		>
-			<header className='w-full h-full p-6 flex gap-6 items-center transition-all'>
+			<header
+				className='w-full h-full max-w-full p-6 flex flex-col gap-6 items-center transition-all'
+				style={{
+					backgroundColor: headerColor,
+					borderTopLeftRadius: borderRadius,
+					borderTopRightRadius: borderRadius,
+				}}
+			>
 				{(image && (
 					<img
 						src={image}
@@ -73,7 +80,47 @@ export const BannerTemplate = ({ values, font }) => {
 					/>
 				)) ||
 					prevContentImage}
+
+				<div className='w-full h-auto max-w-full flex flex-col gap-1 text-center break-words items-center justify-center transition-all'>
+					<h4
+						className='max-w-full h-auto text-center font-bold transition-all'
+						style={{
+							fontFamily: fontFamily,
+							color: titleColor,
+							fontSize: titleSize,
+						}}
+					>
+						{values.title || prevContentText}
+					</h4>
+					<h5
+						className='max-w-full h-auto text-center font-semibold transition-all'
+						style={{
+							fontFamily: fontFamily,
+							color: subTitleColor,
+							fontSize: subTitleSize,
+						}}
+					>
+						{values.subTitle || prevContentText}
+					</h5>
+				</div>
 			</header>
+			<section
+				className='w-full h-full py-2 px-16 flex justify-center break-words overflow-hidden transition-all'
+				style={{
+					backgroundColor: bodyColor,
+				}}
+			>
+				<p
+					className='max-w-full h-auto text-center'
+					style={{
+						fontFamily: fontFamily,
+						color: textColor,
+						fontSize: textSize,
+					}}
+				>
+					{values.text || prevContentText}
+				</p>
+			</section>
 		</div>
 	)
 }

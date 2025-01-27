@@ -5,6 +5,7 @@ const initialValues = {
 	subTitle: '',
 	text: '',
 	backgroundColor: '#ffffff',
+	backgroundImage: '',
 	headerColor: '#ffffff',
 	bodyColor: '#ffffff',
 	titleColor: '#000000',

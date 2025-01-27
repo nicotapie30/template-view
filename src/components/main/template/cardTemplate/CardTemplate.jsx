@@ -42,15 +42,16 @@ export const CardTemplate = ({ values, font }) => {
 
 	return (
 		<div
-			className='w-2/5 h-1/4 max-w-2xl flex flex-col place-self-center transition-all z-10 border-none'
+			className='w-2/5 h-1/4 max-w-2/5 flex flex-col place-self-center transition-all z-10 border-none overflow-hidden'
 			style={{
 				backgroundColor: backgroundColor,
 				borderRadius: borderRadius,
 				boxShadow: `${boxShadowSizeX}px ${boxShadowSizeY}px ${boxShadowSize}px ${boxShadowColor}`,
+				maxWidth: '100%',
 			}}
 		>
 			<header
-				className='w-full h-full p-6 flex gap-6 items-center transition-all'
+				className='w-full h-full max-w-full p-6 flex gap-6 items-center transition-all'
 				style={{
 					backgroundColor: headerColor,
 					borderTopLeftRadius: borderRadius,
@@ -69,23 +70,29 @@ export const CardTemplate = ({ values, font }) => {
 						prevContentImage}
 				</div>
 
-				<div className='w-full flex flex-col gap-1 transition-all'>
+				<div className='w-auto h-auto max-w-full flex flex-col gap-1 break-words transition-all'>
 					<h4
-						className='w-auto flex text-nowrap'
+						className='max-w-full h-auto font-bold transition-all break-words overflow-hidden'
 						style={{
 							fontFamily: fontFamily,
 							fontSize: titleSize,
 							color: titleColor,
+							whiteSpace: 'pre-wrap',
+							wordWrap: 'break-word',
+							wordBreak: 'break-word',
 						}}
 					>
 						{values.title || prevContentText}
 					</h4>
 					<h5
-						className='w-auto flex text-nowrap'
+						className='max-w-full h-auto font-semibold transition-all break-words overflow-hidden'
 						style={{
 							fontFamily: fontFamily,
-							fontSize: subTitleSize,
-							color: subTitleColor,
+							fontSize: titleSize,
+							color: titleColor,
+							whiteSpace: 'pre-wrap',
+							wordWrap: 'break-word',
+							wordBreak: 'break-word',
 						}}
 					>
 						{values.subTitle || prevContentText}
