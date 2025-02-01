@@ -4,6 +4,7 @@ import { downloadPDF } from '@/utils/PDF/downloadPDF'
 import { Button } from '../buttons/Button'
 import { Template } from './template/Template'
 import initialvalues from '@/utils/initialValues.js'
+import Typewriter from 'typewriter-effect'
 
 export const Main = () => {
 	const [templateType, setTemplateType] = useState('card')
@@ -16,11 +17,22 @@ export const Main = () => {
 
 	return (
 		<main className='w-full h-full mt-12 p-4 flex flex-col items-center'>
-			<h1 className='text-6xl mb-28 font-bold text-blue-800'>Template View</h1>
+			<h1 className='text-7xl mb-28 font-bold text-blue-800'>
+				<Typewriter
+					onInit={(typewrite) => {
+						typewrite.typeString('Template View').start()
+					}}
+					options={{
+						autoStart: true,
+						loop: false,
+						cursor: '',
+					}}
+				/>
+			</h1>
 
 			<div className='w-full flex flex-col gap-12'>
 				<article className='w-full h-auto flex gap-6 text-sm font-medium justify-center'>
-					{['Card', 'Invitation', 'Banner'].map((type) => (
+					{['Card', 'Banner'].map((type) => (
 						<Button
 							key={type}
 							onClick={() => handleTemplateChange(type.toLowerCase())}
