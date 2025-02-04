@@ -32,20 +32,20 @@ export const BannerTemplate = ({ values, font }) => {
 					: ''
 
 	const prevContentText = (
-		<div className='w-auto h-6 px-5 text-sm font-medium text-gray-700 bg-gray-400/60 rounded-sm border-none flex items-center cursor-default transition-all'>
+		<span className='w-auto h-6 px-5 text-xs font-medium text-gray-700 text-nowrap text-center bg-gray-400/60 rounded-sm border-none flex items-center justify-center cursor-default transition-all sm:text-sm sm:px-5'>
 			Agregar texto...
-		</div>
+		</span>
 	)
 
 	const prevContentImage = (
-		<div className='min-w-36 min-h-36 text-sm font-medium text-gray-700 bg-gray-400/70 rounded-full border-none flex items-center justify-center cursor-default transition-all'>
+		<div className='min-w-36 min-h-36 text-xs font-medium text-gray-700 bg-gray-400/70 rounded-full border-none flex items-center justify-center cursor-default transition-all sm:w-40 sm:h-40'>
 			Agregar imágen...
 		</div>
 	)
 
 	return (
 		<div
-			className='flex flex-col place-self-center transition-all z-10 border-none overflow-hidden'
+			className='flex flex-col place-self-center transition-all z-10 border-none overflow-hidden lg:mt-6'
 			style={{
 				width: `${width}%`,
 				height: `${height}%`,
@@ -57,7 +57,7 @@ export const BannerTemplate = ({ values, font }) => {
 			}}
 		>
 			<header
-				className='w-full h-full max-w-full p-6 flex flex-col gap-6 items-center transition-all'
+				className='w-full h-full max-w-full p-1 pt-6 flex flex-col gap-6 items-center transition-all'
 				style={{
 					backgroundColor: headerColor,
 					borderTopLeftRadius: borderRadius,
@@ -69,13 +69,13 @@ export const BannerTemplate = ({ values, font }) => {
 						src={image}
 						alt='Imágen de Banner'
 						title='Imágen de Banner'
-						className='w-36 h-36 rounded-full border-none'
+						className='w-36 h-36 rounded-full border-none object-cover object-center'
 						style={{
 							width: `${widthImage}%`,
 							height: `${heightImage}%`,
 							borderRadius: borderRadiusImage,
-							maxWidth: '90%',
-							maxHeight: '90%',
+							maxWidth: '100%',
+							maxHeight: '100%',
 						}}
 					/>
 				)) ||

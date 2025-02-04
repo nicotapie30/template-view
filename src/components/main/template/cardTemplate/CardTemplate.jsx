@@ -29,20 +29,20 @@ export const CardTemplate = ({ values, font }) => {
 					: ''
 
 	const prevContentText = (
-		<div className='w-auto h-6 px-5 text-sm font-medium text-gray-700 bg-gray-400/60 rounded-sm border-none flex items-center cursor-default transition-all'>
+		<span className='w-auto h-6 px-1 text-xs font-medium text-nowrap text-gray-700 bg-gray-400/60 rounded-sm border-none flex flex-1 items-center cursor-default transition-all sm:text-sm sm:px-5'>
 			Agregar texto...
-		</div>
+		</span>
 	)
 
 	const prevContentImage = (
-		<div className='w-36 h-36 text-sm font-medium text-gray-700 bg-gray-400/70 rounded-full border-none flex items-center justify-center cursor-default transition-all'>
+		<div className='w-20 h-20 max-w-20 max-h-20  text-xs font-medium text-gray-700 text-center bg-gray-400/70 rounded-full border-none flex flex-1 items-center justify-center cursor-default transition-all sm:w-40 sm:h-40'>
 			Agregar imágen...
 		</div>
 	)
 
 	return (
 		<div
-			className='w-2/5 h-1/4 max-w-2/5 flex flex-col place-self-center transition-all z-10 border-none overflow-hidden'
+			className='w-auto h-auto max-w-2/5 flex flex-col place-self-center transition-all z-10 border-none overflow-hidden lg:w-2/6 lg:mt-6 lg:h-3/5'
 			style={{
 				backgroundColor: backgroundColor,
 				borderRadius: borderRadius,
@@ -51,20 +51,20 @@ export const CardTemplate = ({ values, font }) => {
 			}}
 		>
 			<header
-				className='w-full h-full max-w-full p-6 flex gap-6 items-center transition-all'
+				className='w-full h-full max-w-full p-6 flex gap-6 justify-start items-center transition-all lg:pl-10'
 				style={{
 					backgroundColor: headerColor,
 					borderTopLeftRadius: borderRadius,
 					borderTopRightRadius: borderRadius,
 				}}
 			>
-				<div className='w-40 h-40 flex items-center transition-all'>
+				<div className='w-24 h-24 rounded-full flex items-center transition-all lg:w-32 lg:h-32'>
 					{(image && (
 						<img
 							src={image}
 							alt='User image'
 							title='Imágen de usuario'
-							className='max-w-full max-h-full rounded-full border-none outline-none object-contain object-center'
+							className='w-full h-full rounded-full border-none outline-none object-cover object-center'
 						/>
 					)) ||
 						prevContentImage}
@@ -88,7 +88,7 @@ export const CardTemplate = ({ values, font }) => {
 						className='max-w-full h-auto font-semibold transition-all break-words overflow-hidden'
 						style={{
 							fontFamily: fontFamily,
-							fontSize: titleSize,
+							fontSize: subTitleSize,
 							color: titleColor,
 							whiteSpace: 'pre-wrap',
 							wordWrap: 'break-word',

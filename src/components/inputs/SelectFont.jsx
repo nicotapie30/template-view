@@ -4,7 +4,7 @@ export const SelectFont = ({ font, setFont }) => {
 	}
 
 	const fonts = [
-		{ id: 'fuente', label: 'Fuente' },
+		{ id: '', label: 'Fuente' },
 		{ id: 'font-sans', label: 'Sans Serif' },
 		{ id: 'font-serif', label: 'Serif' },
 		{ id: 'font-mono', label: 'Monospace' },
@@ -18,13 +18,13 @@ export const SelectFont = ({ font, setFont }) => {
 			value={font}
 			onChange={handleSelect}
 		>
-			{fonts.map((font) => (
+			{fonts.map((f) => (
 				<option
-					key={font.id}
-					value={font.id}
+					key={f.id}
+					value={f.id}
 					className='w-full p-2 bg-blue-50 text-slate-800 font-medium'
 				>
-					{font.label}
+					{f.label}
 				</option>
 			))}
 		</select>

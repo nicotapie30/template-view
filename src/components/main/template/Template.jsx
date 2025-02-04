@@ -1,13 +1,13 @@
 import { CardTemplate } from './cardTemplate/CardTemplate'
 import { BannerTemplate } from './bannerTemplate/BannerTemplate'
 
-const templatemMap = {
+const templateMap = {
 	card: CardTemplate,
 	banner: BannerTemplate,
 }
 
 export const Template = ({ type, values, font }) => {
-	const SelectedTemplate = templatemMap[type]
+	const SelectedTemplate = templateMap[type]
 
 	if (!SelectedTemplate) {
 		return (
@@ -17,7 +17,7 @@ export const Template = ({ type, values, font }) => {
 		)
 	} else {
 		return (
-			<div className='w-full h-auto'>
+			<div className='w-full h-screen'>
 				<SelectedTemplate values={values} font={font} />
 			</div>
 		)

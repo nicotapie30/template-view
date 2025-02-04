@@ -1,11 +1,14 @@
 import React from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/buttons/Button'
 import { Input } from '@/components/inputs/Input'
 import { SelectFont } from '@/components/inputs/SelectFont'
 import initialValues from '@/utils/initialValues.js'
 import { handleImageChange } from '@/utils/imageLogicInput'
 
-export const Form = ({ inputValue, setInputValue, font, setFont }) => {
+export const Form = ({ inputValue, setInputValue }) => {
+	const [font, setFont] = useState('font-sans')
+
 	const handleChange = (e) => {
 		const { id, value, files, type } = e.target
 		if (id === 'image' && files.length > 0) {
@@ -28,12 +31,12 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 	}
 
 	return (
-		<div className='w-auto h-full px-10 flex gap-4'>
+		<div className='w-full h-full px-1 flex gap-4 justify-center '>
 			<form
-				className='w-96 min-w-70 h-full p-4 flex flex-col gap-14 bg-slate-300/20 backdrop-blur-3xl rounded-md shadow-lg'
+				className='w-full h-full p-4 flex flex-col  gap-14 bg-slate-300/20 backdrop-blur-3xl rounded-md shadow-lg '
 				onSubmit={handleSubmit}
 			>
-				<h2 className='mb-4 text-center text-4xl font-bold text-red-500/90'>
+				<h2 className='mb-4 text-center text-3xl font-bold text-red-500/90'>
 					Crear plantilla
 				</h2>
 
@@ -270,7 +273,7 @@ export const Form = ({ inputValue, setInputValue, font, setFont }) => {
 					name='Radio de la imágen'
 					id='borderRadiusImage'
 					min='0'
-					max='50'
+					max='100'
 					value={inputValue.borderRadiusImage}
 					onChange={handleChange}
 					unit='px'
