@@ -1,0 +1,5 @@
+export { default as TitleInput } from './form/inputsComponents/textInputs/TitleInput'
+export { default as SubTitleInput } from './form/inputsComponents/textInputs/SubTitleInput'
+export { default as TextInput } from './form/inputsComponents/textInputs/TextInput'
+export { default as RangeTitleInput } from './form/inputsComponents/rangeInputs/RangeTitleInput'
+export { default as RangeSubTitleInput } from './form/inputsComponents/rangeInputs/RangeSubTitleInput'

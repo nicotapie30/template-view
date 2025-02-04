@@ -89,7 +89,7 @@ export const CardTemplate = ({ values, font }) => {
 						style={{
 							fontFamily: fontFamily,
 							fontSize: subTitleSize,
-							color: titleColor,
+							color: subTitleColor,
 							whiteSpace: 'pre-wrap',
 							wordWrap: 'break-word',
 							wordBreak: 'break-word',

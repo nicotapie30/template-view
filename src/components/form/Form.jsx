@@ -1,16 +1,22 @@
 import React from 'react'
-import { useState } from 'react'
 import { Button } from '@/components/buttons/Button'
-import { Input } from '@/components/inputs/Input'
 import { SelectFont } from '@/components/inputs/SelectFont'
-import initialValues from '@/utils/initialValues.js'
 import { handleImageChange } from '@/utils/imageLogicInput'
+import {
+	TitleInput,
+	SubTitleInput,
+	TextInput,
+	RangeTitleInput,
+	RangeSubTitleInput,
+} from '../index.js'
 
-export const Form = ({ inputValue, setInputValue }) => {
+export const Form = () => {
+	const { state, dispatch } = useFormContext()
 	const [font, setFont] = useState('font-sans')
 
 	const handleChange = (e) => {
 		const { id, value, files, type } = e.target
+
 		if (id === 'image' && files.length > 0) {
 			handleImageChange(e, setInputValue)
 		} else {
@@ -22,7 +28,7 @@ export const Form = ({ inputValue, setInputValue }) => {
 	}
 
 	const handleReset = () => {
-		setInputValue(initialValues)
+		dispatch({ type: 'RESET_FORM' })
 		setFont('')
 	}
 
@@ -63,62 +69,23 @@ export const Form = ({ inputValue, setInputValue }) => {
 				/>
 
 				<div className='flex flex-col gap-6'>
-					<Input
-						type='text'
-						name='Título'
-						id='title'
-						placeholder='Escribir aqui...'
-						value={inputValue.title}
-						onChange={handleChange}
-					/>
+					<TitleInput />
 
 					<div>
-						<Input
-							type='range'
-							name='Tamaño de título'
-							id='titleSize'
-							min='10'
-							max='50'
-							value={inputValue.titleSize}
-							onChange={handleChange}
-							unit='px'
-						/>
+						<RangeTitleInput />
 					</div>
 				</div>
 
 				<div className='flex flex-col gap-6'>
-					<Input
-						type='text'
-						name='Subtítulo'
-						id='subTitle'
-						placeholder='Escribir aqui...'
-						value={inputValue.subTitle}
-						onChange={handleChange}
-					/>
+					<SubTitleInput />
 
 					<div>
-						<Input
-							type='range'
-							name='Tamaño de Subtítulo'
-							id='subTitleSize'
-							min='8'
-							max='35'
-							value={inputValue.subTitleSize}
-							onChange={handleChange}
-							unit='px'
-						/>
+						<RangeSubTitleInput />
 					</div>
 				</div>
 
 				<div className='flex flex-col gap-6'>
-					<Input
-						type='text'
-						name='Texto'
-						id='text'
-						placeholder='Escribir aqui...'
-						value={inputValue.text}
-						onChange={handleChange}
-					/>
+					<TextInput />
 
 					<div>
 						<Input
