@@ -1,24 +1,21 @@
 import { useFormContext } from '@/context/formContext'
 import { Input } from '@/inputs/Input'
 
-export const RangeTitleInput = () => {
+export const TitleColorInput = () => {
 	const { state, dispatch } = useFormContext()
 
 	const handleChange = (e) => {
 		const { value } = e.target
 
-		dispatch({ type: 'SET_TITLE-SIZE', payload: value })
+		dispatch({ type: 'SET_TITLE-COLOR', payload: value })
 	}
 
 	return (
 		<Input
-			type='range'
-			name='Tamaño del título'
-			id='titleSize'
-			min='10'
-			max='50'
-			unit='px'
-			value={state.titleSize}
+			type='color'
+			name='Color del título'
+			id='titleColor'
+			value={state.titleColor}
 			onChange={handleChange}
 		/>
 	)

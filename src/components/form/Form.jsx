@@ -6,14 +6,29 @@ import {
 	TitleInput,
 	SubTitleInput,
 	TextInput,
-	RangeTitleInput,
-	RangeSubTitleInput,
+	WidthRangeInput,
+	HeightRangeInput,
+	TitleRangeInput,
+	SubtitleRangeInput,
+	TextRangeInput,
+	BorderRadiusRangeInput,
+	BoxShadowRangeInput,
+	BoxShadowRangeXInput,
+	BoxShadowRangeYInput,
+	BoxShadowColorInput,
+	BackgroundColorInput,
+	HeaderColorInput,
+	BodyColorInput,
+	TitleColorInput,
+	SubtitleColorInput,
+	TextColorInput,
+	ImageInput,
+	ImageWidthRangeInput,
+	ImageHeightRangeInput,
+	ImageRadiusRangeInput,
 } from '../index.js'
 
 export const Form = () => {
-	const { state, dispatch } = useFormContext()
-	const [font, setFont] = useState('font-sans')
-
 	const handleChange = (e) => {
 		const { id, value, files, type } = e.target
 
@@ -46,205 +61,66 @@ export const Form = () => {
 					Crear plantilla
 				</h2>
 
-				<Input
-					type='range'
-					name='Ancho'
-					id='width'
-					min='30'
-					max=''
-					value={inputValue.width}
-					onChange={handleChange}
-					unit='%'
-				/>
+				<WidthRangeInput />
 
-				<Input
-					type='range'
-					name='Alto'
-					id='height'
-					min='30'
-					max=''
-					value={inputValue.height}
-					onChange={handleChange}
-					unit='%'
-				/>
+				<HeightRangeInput />
 
 				<div className='flex flex-col gap-6'>
 					<TitleInput />
 
 					<div>
-						<RangeTitleInput />
+						<TitleRangeInput />
 					</div>
+
+					<TitleColorInput />
 				</div>
 
 				<div className='flex flex-col gap-6'>
 					<SubTitleInput />
 
 					<div>
-						<RangeSubTitleInput />
+						<SubtitleRangeInput />
 					</div>
+					<SubtitleColorInput />
 				</div>
 
 				<div className='flex flex-col gap-6'>
 					<TextInput />
 
 					<div>
-						<Input
-							type='range'
-							name='Tamaño de texto'
-							id='textSize'
-							min='5'
-							max='30'
-							value={inputValue.textSize}
-							onChange={handleChange}
-							unit='px'
-						/>
+						<TextRangeInput />
 					</div>
+					<TextColorInput />
 				</div>
+
+				<SelectFont />
 
 				<div className='w-full h-full mt-4 flex flex-col gap-10'>
-					<Input
-						type='range'
-						name='Border Radius'
-						id='borderRadius'
-						min='0'
-						max='50'
-						value={inputValue.borderRadius}
-						onChange={handleChange}
-						unit='px'
-					/>
+					<BorderRadiusRangeInput />
 
-					<Input
-						type='range'
-						name='Box Shadow Size X'
-						id='boxShadowSizeX'
-						min='0'
-						max='20'
-						value={inputValue.boxShadowSizeX}
-						onChange={handleChange}
-						unit='px'
-					/>
+					<BoxShadowRangeInput />
 
-					<Input
-						type='range'
-						name='Box Shadow Size Y'
-						id='boxShadowSizeY'
-						min='0'
-						max='20'
-						value={inputValue.boxShadowSizeY}
-						onChange={handleChange}
-						unit='px'
-					/>
+					<BoxShadowRangeXInput />
 
-					<Input
-						type='range'
-						name='Box Shadow Size'
-						id='boxShadowSize'
-						min='0'
-						max='20'
-						value={inputValue.boxShadowSize}
-						onChange={handleChange}
-						unit='px'
-					/>
+					<BoxShadowRangeYInput />
 
-					<Input
-						type='color'
-						name='Box Shadow Color'
-						id='boxShadowColor'
-						value={inputValue.boxShadowColor}
-						onChange={handleChange}
-					/>
+					<BoxShadowColorInput />
 				</div>
 				<div className='w-full h-full flex gap-6 flex-wrap justify-evenly text-center'>
-					<Input
-						type='color'
-						name='Color de fondo'
-						id='backgroundColor'
-						value={inputValue.backgroundColor}
-						onChange={handleChange}
-					/>
+					<BackgroundColorInput />
 
-					<Input
-						type='color'
-						name='Color de Cabecera'
-						id='headerColor'
-						value={inputValue.headerColor}
-						onChange={handleChange}
-					/>
+					<HeaderColorInput />
 
-					<Input
-						type='color'
-						name='Color de Cuerpo'
-						id='bodyColor'
-						value={inputValue.bodyColor}
-						onChange={handleChange}
-					/>
-
-					<Input
-						type='color'
-						name='Color de título'
-						id='titleColor'
-						value={inputValue.titleColor}
-						onChange={handleChange}
-					/>
-
-					<Input
-						type='color'
-						name='Color de Subtítulo'
-						id='subTitleColor'
-						value={inputValue.subTitleColor}
-						onChange={handleChange}
-					/>
-
-					<Input
-						type='color'
-						name='Color de texto'
-						id='textColor'
-						value={inputValue.textColor}
-						onChange={handleChange}
-					/>
+					<BodyColorInput />
 				</div>
 
-				<SelectFont font={font} setFont={setFont} />
+				<ImageInput />
 
-				<Input
-					type='file'
-					name='Cargar imágen'
-					id='image'
-					onChange={handleChange}
-				/>
+				<ImageWidthRangeInput />
 
-				<Input
-					type='range'
-					name='Ancho de la imágen'
-					id='widthImage'
-					min='10'
-					max=''
-					value={inputValue.widthImage}
-					onChange={handleChange}
-					unit='%'
-				/>
+				<ImageHeightRangeInput />
 
-				<Input
-					type='range'
-					name='Alto de la imágen'
-					id='heightImage'
-					min='10'
-					max=''
-					value={inputValue.heightImage}
-					onChange={handleChange}
-					unit='%'
-				/>
-
-				<Input
-					type='range'
-					name='Radio de la imágen'
-					id='borderRadiusImage'
-					min='0'
-					max='100'
-					value={inputValue.borderRadiusImage}
-					onChange={handleChange}
-					unit='px'
-				/>
+				<ImageRadiusRangeInput />
 
 				<div className='w-full h-full mt-8 flex justify-center items-center gap-6'>
 					<Button type='reset' content='Resetear' onClick={handleReset} />

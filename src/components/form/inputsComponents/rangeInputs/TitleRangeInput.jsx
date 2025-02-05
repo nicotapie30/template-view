@@ -1,24 +1,24 @@
 import { useFormContext } from '@/context/formContext'
 import { Input } from '@/inputs/Input'
 
-export const RnageSubTitleInput = () => {
+export const TitleRangeInput = () => {
 	const { state, dispatch } = useFormContext()
 
 	const handleChange = (e) => {
 		const { value } = e.target
 
-		dispatch({ type: 'SET_SUBTITLE-SIZE', payload: value })
+		dispatch({ type: 'SET_TITLE-SIZE', payload: value })
 	}
 
 	return (
 		<Input
 			type='range'
-			name='Tamaño del subtítulo'
-			id='subTitleSize'
-			min='8'
-			max='35'
+			name='Tamaño del título'
+			id='titleSize'
+			min='10'
+			max='50'
 			unit='px'
-			value={state.subTitleSize}
+			value={state.titleSize}
 			onChange={handleChange}
 		/>
 	)
